@@ -1,0 +1,21 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/replysend_post">
+  <h2>Send Reply</h2>
+  <table  border="1" class="table table-striped">
+    <tr>
+      <td width="136">Reply</td>
+      <td width="254"><textarea name="textarea" class="form-control"></textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" value="Send" class="btn btn-success"/>
+      </div></td>
+    </tr>
+  </table>
+  <p>&nbsp; </p>
+</form>
+</body>
+{% endblock %}

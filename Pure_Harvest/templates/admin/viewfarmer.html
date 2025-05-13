@@ -1,0 +1,48 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/search_farmer#services">
+  <h2>View Farmers</h2>
+  <table width="624" height="326" border="1" class="table table-striped">
+    <tr>
+        <td  colspan="2">Farmer</td>
+        <td  colspan="2">
+            <input type="text" name="textfield" required class="form-control"/></td>
+        <td  colspan="2">
+      <input type="submit" name="Submit" value="Go" class="btn btn-primary" /></td>
+    </tr>
+    <tr>
+      <td>Sl.no.</td>
+      <td>Farmer</td>
+      <td>Address</td>
+      <td>E-mail</td>
+      <td>Phone</td>
+      <td>Status</td>
+        <td> </td>
+
+    </tr>
+
+      {% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{i.name}}</td>
+      <td>&nbsp;{{i.place}}<br>{{ i.post }}<br>{{ i.pin }}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.phone}}</td>
+      <td>{{ i.status  }}</td>
+        <td>{% if i.status == 'rejected' or i.status == "pending" %}
+      <p><a href="unblock/{{ i.id }}" class="btn btn-success">Approve</a></p>
+        {% elif i.status == 'approved' %}
+                <p><a href="block/{{ i.id }}" class="btn btn-danger">Reject</a></p>
+    {% else %}
+            {{ i.status }}
+    {% endif %}
+
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

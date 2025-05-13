@@ -1,0 +1,58 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/search_fert#services">
+  <h2>Manage Fertlizer</h2>
+  <h2>&nbsp;</h2>
+  <p>&nbsp;</p>
+  <table width="768" height="249" border="1" class="table table-striped">
+    <tr>
+        <th colspan="2">Fertilizers</th>
+        <th colspan="5">
+      <input type="text" name="textfield" class="form-control" required value="{{ s }}" />
+        </th>
+        <th colspan="3">
+      <input type="submit" name="button" value="Search" required class="btn btn-primary"/></th>
+    </tr>
+    <tr>
+      <th width="110">Sl.no.</th>
+      <th width="115">Name</th>
+              <th width="115">Photo</th>
+      <th width="155">Usage</th>
+      <th width="104">Description</th>
+      <th width="91">Company</th>
+             <th width="91">Type</th>
+        <th width="91">Price</th>
+      <th width="153">&nbsp;</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+        <td>&nbsp;{{ i.name }}</td>
+        <td><img src="{{i.photo.url}}" height="100" width="100"}} /></td>
+
+      <td>{{ i.usage }}</td>
+      <td>{{ i.description}}</td>
+      <td>&nbsp;{{ i.company }}</td>
+            <td>&nbsp;{{ i.type }}</td>
+             <td>&nbsp;{{ i.price }}</td>
+      <td><p><a href="editfertilizer/{{ i.id }}#services" class="btn btn-info">&nbsp; edit &nbsp;</a></p>
+          <br>
+      <p><a href="delete_fertilizer/{{ i.id }}" class="btn btn-danger">Delete</a></p></td>
+    </tr>
+      {% endfor %}
+    <tr>
+
+      <td colspan="9" align="center"><a href="add_fertilizer#services" class="btn btn-success">Add</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

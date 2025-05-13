@@ -1,0 +1,49 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<!-- <form id="form1" name="form1" method="post" action="/search_booking"> -->
+  <h2>View doubts</h2>
+  <table   class="table table-striped">
+
+  <tr>
+      <td >Date
+      </td>
+      <td colspan="5">
+      <input type="date" name="textfield" class="form-control" required/>
+      </td>
+      <td>
+      <input type="submit" name="Submit" value="Go" class="btn btn-primary"/></td>
+      <td></td>
+    </tr>
+    <tr>
+    <th >Sl.no.</th>
+    <th >Name</th>
+    <th >Fertilizer</th>
+         <th >Price</th>
+              <th >Quantity</th>
+    <th >date</th>
+<th>Status</th>
+  </tr>
+
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+    <td>{{ i.FARMER.name }}</td>
+         <td>&nbsp;{{ i.FERTILIZER.name }}
+         <br>
+         <img src="{{i.FERTILIZER.photo.url}}" height="100" width="100"}} /></td>
+             <td>&nbsp;{{ i.FERTILIZER.price }}</td>
+          <td>&nbsp;{{ i.qty }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+         <td>{% if i.status == "pending" %}
+        <a class="btn btn-success" href="/app_fert/{{ i.id }}#Services">Approve</a> &nbsp; <a class="btn btn-danger" href="/rej_fert/{{ i.id }}#Services">Reject</a>
+        {% else %}{{ i.status }}{{ i.reply }}{% endif %}
+    </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p>&nbsp; </p>
+</form>
+</body>
+{% endblock%}

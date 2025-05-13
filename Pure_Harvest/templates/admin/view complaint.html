@@ -1,0 +1,51 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<h2><strong><var>View Complaint</var></strong></h2>
+<form id="form2" name="form2" method="post" action="/searchcomplaint#services">
+<table  border="1" class="table table-striped">
+  <tr>
+      <th colspan="2"> Type</th>
+  <td colspan="2">
+      <select name="select" size="1" class="form-control">
+          <option value="u"{% if t == 'u' %} selected{% endif %}>User</option>
+          <option value="f" {% if t == 'f' %} selected{% endif %}>Farmer</option>
+
+       </select>
+  </td>
+  <td>
+    <input type="submit" value="Search"  class="btn btn-primary"/> </td>
+    </tr>
+
+
+  <tr>
+    <th width="50">Sl.no.</th>
+    <th width="53">Name</th>
+    <th width="87">Complaint</th>
+    <th width="72">date</th>
+    <th width="88">Reply</th>
+  </tr>
+
+    {% for i in val %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+    <td>{{ i.Name }}</td>
+         <td>&nbsp;{{ i.complaint }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+         <td>{% if i.reply == "pending" %}
+        <a class="btn btn-success" href="/sendreply/{{ i.id }}#Services">Reply</a></td>
+        {% else %}{{ i.reply }}{% endif %}
+    </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}
+{#</html>#}

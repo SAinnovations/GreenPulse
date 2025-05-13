@@ -1,0 +1,21 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/send_not">
+  <p>&nbsp;</p>
+  <table width="200" border="1" class="table table-striped">
+    <tr>
+      <td>Notification</td>
+        <td><textarea class="form-control" required name="textfield" ></textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="Submit" value="SEND" class="btn btn-success"/>
+      </div></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

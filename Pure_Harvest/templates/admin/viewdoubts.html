@@ -1,0 +1,42 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/search_doubt">
+  <h2>View doubts</h2>
+  <table  border="1"class="table table-striped">
+
+  <tr>
+      <td >Date
+      </td>
+      <td colspan="2">
+      <input type="date" name="textfield" class="form-control" required/>
+      </td>
+      <td>
+      <input type="submit" name="Submit" value="Go" class="btn btn-primary"/></td>
+      <td></td>
+    </tr>
+    <tr>
+        <td>SL NO</td>
+      <td>Name</td>
+      <td>Doubt</td>
+      <td>Date</td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+      <td>{{ i.FARMER.name}}</td>
+      <td>{{ i.doubt }}</td>
+      <td>{{ i.date }}</td>
+        <td>{% if i.reply == "pending" %}
+      <a class="btn btn-success" href="replysend/{{ i.id }}#services">Reply</a></td>
+    {% else %}{{ i.reply }}
+    {% endif %}
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp; </p>
+</form>
+</body>
+{% endblock%}

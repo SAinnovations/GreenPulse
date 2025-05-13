@@ -1,0 +1,34 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/sendreplypost">
+  <h2>Send Reply  </h2>
+  <table width="458" height="196" border="1" class="table table-striped">
+    <tr>
+      <td> <p align="center">Reply
+      </p></td>
+        <td>
+          <textarea name="textfield" required class="form-control"></textarea>
+      </td>
+        </td>
+    </tr>
+      <tr>
+        <td colspan="2" align="center">
+      <p align="center">
+        <input type="submit" name="Submit" value="Send" class="btn btn-success"/>
+      </p></td>
+    </tr>
+  </table>
+
+</form>
+
+</body>
+{% endblock %}
+{#</html>#}
