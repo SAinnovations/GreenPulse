@@ -1,4 +1,3 @@
-
 Package              Version
 -------------------- -------
 absl-py              2.1.0
@@ -31,4 +30,4 @@ Werkzeug             2.2.3
 wheel                0.42.0
 wrapt                1.16.0
 zipp                 3.15.0
-Python 		     3.7.9
+Python             3.7.9
